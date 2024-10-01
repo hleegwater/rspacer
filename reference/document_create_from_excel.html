@@ -45,6 +45,8 @@ The file needs to have exactly two columns, one with the Rspace structured docum
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">document_create_from_excel</span><span class="op">(</span></span>
 <span>  <span class="va">path</span>,</span>
+<span>  file_type <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  document_name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  template_id <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  folder_id <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  tags <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -59,11 +61,41 @@ The file needs to have exactly two columns, one with the Rspace structured docum
 
 
 <dl><dt id="arg-path">path<a class="anchor" aria-label="anchor" href="#arg-path"></a></dt>
-<dd><p>Tabular file</p></dd>
+<dd><p>spreadsheet-like file to upload. Can be xlsx, csv or tsv</p></dd>
+
+
+<dt id="arg-file-type">file_type<a class="anchor" aria-label="anchor" href="#arg-file-type"></a></dt>
+<dd><p>an optional character string to specify the file type. Will be guessed from the file name if not specified.</p></dd>
+
+
+<dt id="arg-document-name">document_name<a class="anchor" aria-label="anchor" href="#arg-document-name"></a></dt>
+<dd><p>specify the name of the Rspace entry. If not specified,
+it will be the value in Title, Name, title, or name if that is one of the fields in the Excel document.
+If that does not exist, it will be the file name.</p></dd>
+
+
+<dt id="arg-template-id">template_id<a class="anchor" aria-label="anchor" href="#arg-template-id"></a></dt>
+<dd><p>document id of the RSpace template used</p></dd>
+
+
+<dt id="arg-folder-id">folder_id<a class="anchor" aria-label="anchor" href="#arg-folder-id"></a></dt>
+<dd><p>folder_id in which the document will be created (can be a notebook)</p></dd>
+
+
+<dt id="arg-tags">tags<a class="anchor" aria-label="anchor" href="#arg-tags"></a></dt>
+<dd><p>vector of tags to apply to the document</p></dd>
+
+
+<dt id="arg-attachment">attachment<a class="anchor" aria-label="anchor" href="#arg-attachment"></a></dt>
+<dd><p>attachment to attach to one of the fields, e.g., <code>list(field = 7, path = "file.txt")</code></p></dd>
 
 
 <dt id="arg-api-key">api_key<a class="anchor" aria-label="anchor" href="#arg-api-key"></a></dt>
 <dd><p>RSpace API key</p></dd>
+
+
+<dt id="arg-existing-document-id">existing_document_id<a class="anchor" aria-label="anchor" href="#arg-existing-document-id"></a></dt>
+<dd><p>if you want to replace a document by a new one, specify the current identifier here.</p></dd>
 
 </dl></div>
 
